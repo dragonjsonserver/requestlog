@@ -217,7 +217,7 @@ class Requestlog
 	{
 		return [
 			'requestlog_id' => $this->getRequestlogId(),
-			'created' => $this->getCreated()->getTimestamp(),
+			'created' => $this->getCreatedTimestamp(),
 			'method' => $this->getMethod(),
 			'id' => $this->getId(),
 			'classname' => $this->getClassname(),
