@@ -38,7 +38,10 @@ class Requestlog
 			->setParams($request->getParams())
 			->setResponse($response->toArray());
 		if ($serviceManager->has('Session')) {
-			$requestlog->setSession($serviceManager->get('Session')->getSession()->toArray());
+			$session = $serviceManager->get('Session')->getSession();
+			if (null !== $session) {
+				$requestlog->setSession($session->toArray());
+			}
 		}
 		$entityManager->persist($requestlog);
 		$entityManager->flush();
