@@ -21,6 +21,7 @@ class Requestlog
 	 * Erstellt und speichert einen neuen Requestlog
 	 * @param \DragonJsonServer\Request $request
 	 * @param \DragonJsonServer\Response $response
+	 * @return Requestlog
 	 */
 	public function createRequestlog(\DragonJsonServer\Request $request, \DragonJsonServer\Response $response)
 	{
@@ -41,5 +42,6 @@ class Requestlog
 		}
 		$entityManager->persist($requestlog);
 		$entityManager->flush();
+		return $this;
 	}
 }
