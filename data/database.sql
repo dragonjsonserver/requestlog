@@ -7,5 +7,6 @@ CREATE TABLE `requestlogs` (
 	`methodname` VARCHAR(255) NOT NULL,
 	`params` TEXT NOT NULL,
 	`response` TEXT NOT NULL,
-	`session` TEXT NULL
+	`session` TEXT NULL,
+	PRIMARY KEY (`requestlog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
