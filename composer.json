@@ -1,6 +1,6 @@
 {
     "name": "dragonprojects/dragonjsonserverrequestlog",
-    "description": "Extension for DragonJsonServer to log requests in the database",
+    "description": "Erweiterung für den DragonJsonServer zur Protokollierung von Requests in die Datenbank",
     "license": "BSD-3-Clause",
     "authors": [
         {
