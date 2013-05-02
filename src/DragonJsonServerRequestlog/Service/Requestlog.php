@@ -27,7 +27,10 @@ class Requestlog
 	{
 		$serviceManager = $this->getServiceManager();
 		$entityManager = $this->getEntityManager();
-		
+
+		if (!$entityManager->isOpen()) {
+			return;
+		}
 		$method = $request->getMethod();
 		list ($classname, $methodname) = $serviceManager->get('Server')->parseMethod($method);
 		$requestlog = (new \DragonJsonServerRequestlog\Entity\Requestlog())
