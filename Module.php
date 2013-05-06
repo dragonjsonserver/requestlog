@@ -47,7 +47,7 @@ class Module
     public function init(\Zend\ModuleManager\ModuleManager $moduleManager)
     {
     	$sharedManager = $moduleManager->getEventManager()->getSharedManager();
-    	$sharedManager->attach('DragonJsonServer\Service\Server', 'response', 
+    	$sharedManager->attach('DragonJsonServer\Service\Server', 'Response', 
     		function (\DragonJsonServer\Event\Response $eventResponse) {
     			$this->getServiceManager()->get('Requestlog')
     				->createRequestlog($eventResponse->getRequest(), $eventResponse->getResponse());
