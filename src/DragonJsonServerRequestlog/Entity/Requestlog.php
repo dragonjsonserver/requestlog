@@ -216,6 +216,7 @@ class Requestlog
 	public function toArray()
 	{
 		return [
+			'entity' => 'Requestlog',
 			'requestlog_id' => $this->getRequestlogId(),
 			'created' => $this->getCreatedTimestamp(),
 			'method' => $this->getMethod(),
