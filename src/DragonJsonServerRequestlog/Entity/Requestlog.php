@@ -61,6 +61,17 @@ class Requestlog
 	protected $session;
 	
 	/**
+	 * Setzt die ID des Requestlogs
+	 * @param integer $requestlog_id
+	 * @return Requestlog
+	 */
+	protected function setRequestlogId($requestlog_id)
+	{
+		$this->requestlog_id = $requestlog_id;
+		return $this;
+	}
+	
+	/**
 	 * Gibt die ID des Requestlogs zurück
 	 * @return integer
 	 */
@@ -210,13 +221,32 @@ class Requestlog
 	}
 	
 	/**
-	 * Gibt die Attribute der Deviceverknüpfung als Array zurück
+	 * Setzt die Attribute des Requestlogs aus dem Array
+	 * @param array $array
+	 * @return Requestlog
+	 */
+	public function fromArray(array $array)
+	{
+		return $this
+			->setRequestlogId($array['requestlog_id'])
+			->setCreatedTimestamp($array['created'])
+			->setMethod($array['method'])
+			->setId($array['id'])
+			->setClassname($array['classname'])
+			->setMethodname($array['methodname'])
+			->setParams($array['params'])
+			->setResponse($array['response'])
+			->setSession($array['session']);
+	}
+	
+	/**
+	 * Gibt die Attribute des Requestlogs als Array zurück
 	 * @return array
 	 */
 	public function toArray()
 	{
 		return [
-			'entity' => 'Requestlog',
+			'__className' => __CLASS__,
 			'requestlog_id' => $this->getRequestlogId(),
 			'created' => $this->getCreatedTimestamp(),
 			'method' => $this->getMethod(),
