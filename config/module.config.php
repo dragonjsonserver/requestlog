@@ -13,7 +13,7 @@
 return [
 	'service_manager' => [
 		'invokables' => [
-            'Requestlog' => '\DragonJsonServerRequestlog\Service\Requestlog',
+            '\DragonJsonServerRequestlog\Service\Requestlog' => '\DragonJsonServerRequestlog\Service\Requestlog',
 		],
 	],
 	'doctrine' => [

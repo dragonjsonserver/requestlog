@@ -32,7 +32,8 @@ class Requestlog
 			return;
 		}
 		$method = $request->getMethod();
-		list ($classname, $methodname) = $serviceManager->get('Server')->parseMethod($method);
+    	$serviceServer = $this->getServiceManager()->get('\DragonJsonServer\Service\Server');
+		list ($classname, $methodname) = $serviceServer->parseMethod($method);
 		$requestlog = (new \DragonJsonServerRequestlog\Entity\Requestlog())
 			->setMethod($method)
 			->setId($request->getId())
@@ -40,8 +41,8 @@ class Requestlog
 			->setMethodname($methodname)
 			->setParams($request->getParams())
 			->setResponse($response->toArray());
-		if ($serviceManager->has('Session')) {
-			$session = $serviceManager->get('Session')->getSession();
+		if ($serviceManager->has('\DragonJsonServerAccount\Service\Session')) {
+			$session = $serviceManager->get('\DragonJsonServerAccount\Service\Session')->getSession();
 			if (null !== $session) {
 				$requestlog->setSession($session->toArray());
 			}

@@ -49,7 +49,7 @@ class Module
     	$sharedManager = $moduleManager->getEventManager()->getSharedManager();
     	$sharedManager->attach('DragonJsonServer\Service\Server', 'Response', 
     		function (\DragonJsonServer\Event\Response $eventResponse) {
-    			$this->getServiceManager()->get('Requestlog')
+    			$this->getServiceManager()->get('\DragonJsonServerRequestlog\Service\Requestlog')
     				->createRequestlog($eventResponse->getRequest(), $eventResponse->getResponse());
     		}		
     	);
